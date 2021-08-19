@@ -121,11 +121,18 @@ export function Home() {
           <UserInfoText style={{ fontFamily: theme.fonts.bold }}>{user.display_name}</UserInfoText>
         </UserInfo>
 
-        {/* <SignOutButton onPress={}>
-          Verify if isLoggingOut is true
-          If it is, show an ActivityIndicator
-          Otherwise, show Feather's power icon
-        </SignOutButton> */}
+        <SignOutButton onPress={signOut}>
+			{isLoggingOut ?
+				<ActivityIndicator 
+					color={theme.colors.white}
+					style={{ marginTop: 25 }}  />
+				: <Feather 
+					name="power"
+					size={24}
+					color={theme.colors.white}
+					style={{ marginRight:1 }}/>	
+			}
+        </SignOutButton> 
       </Header>
 
       <UserFollowedStreams>
